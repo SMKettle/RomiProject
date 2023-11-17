@@ -1,10 +1,12 @@
 package frc.robot;
+import edu.wpi.first.wpilibj.XboxController;
 
 public class Controls {
 
     Subsystems subsystems;
 
     // Controller + Button Variables
+    public XboxController controller;
     
 
     // Constructor
@@ -12,7 +14,7 @@ public class Controls {
         this.subsystems = subsystems;
         
         // Initialize Controller and Button variables here
-
+        controller = new XboxController(0);
 
 
         // Call Bind Methods
@@ -20,5 +22,7 @@ public class Controls {
     }
 
     // Control Bind Methods
-
+    public void bindDriveBaseControls() {
+        subsystems.driveBaseSubsystem.setDefaultCommand(new DriveCommand(subsystems));
+    }
 }
